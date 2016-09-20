@@ -1,18 +1,14 @@
-## Chrome extension - Now You (Don't) See Me
+## Chrome extension - Linkedin Endorser
 
 ### Background
 
-Sometimes I don't feel comfortable letting people see the content I am currently browsing when they passing by. Whenever you want to hide all of your tabs,this Chrome extension will help you to close all the tabs, save them into a temporary bookmark folder, and restore them later with one button.
+It's App Academy job hunting season! This Chrome Extension can let you endorse your classmates just in one click!
 
 ### Functionality & MVP
 
 With this extension, users will be able to:
 
-- [ ] Hide ( & bookmark) all the tabs with one click.
-- [ ] Restore ( & remove the temporary bookmarks) all the tabs with one click.
-- [ ] Use Hotkey to hide & restore.
-- [ ] Open your preset homepage when hiding all the tabs.
-- [ ] Use password to restore the tabs.
+- [ ] Endorse all the skills for his friend.
 
 ### Wireframe
 
