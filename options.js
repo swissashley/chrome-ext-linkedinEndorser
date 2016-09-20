@@ -6,7 +6,7 @@ function save_options() {
   }, function() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
-    status.textContent = 'Options saved.';
+    status.textContent = 'Skill Added.';
     setTimeout(function() {
       status.textContent = '';
     }, 750);
@@ -18,9 +18,16 @@ function save_options() {
 function restore_options() {
   // Use default value color = 'red' and likesColor = true.
   chrome.storage.sync.get({
-    url: 'https://google.com'
-  }, function(items) {
-    document.getElementById('url').value = items.url;
+    skills: ['JavaScript', 'React', 'Redux']
+  }, (items) => {
+    items.skills.forEach((skill, index) => {
+      let node = document.createElement('li');
+      let textnode = document.createTextNode(skill);         // Create a text node
+      node.appendChild(textnode);
+      node.setAttribute('id', `skill-${index}`);
+      document.getElementById("skill-list").appendChild(node);
+    });
+    // document.getElementById('url').value = items.url;
   });
 }
 document.addEventListener('DOMContentLoaded', restore_options);
