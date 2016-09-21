@@ -3,7 +3,9 @@ var buttonNodes = [];
 var skillNodes = [];
 var skillArr = [];
 var presetSkills = [];
+var toggled = false;
 chrome.storage.sync.get(null, items => {
+  toggled = !toggled;
   var skills = items.skills;
   for (var i = 0; i < skills.length; i++) {
     presetSkills.push(skills[i].toLowerCase());
@@ -24,6 +26,11 @@ chrome.storage.sync.get(null, items => {
       if (presetSkills.includes(skillArr[i])) {
         // console.log('endorsing ' + skillArr[i]);
         buttonNodes[i].click();
+        if (toggled) {
+          skillNodes[i].style.background = 'red';
+        } else {
+          skillNodes[i].style.background = 'white';
+        }
       }
     }
   }
