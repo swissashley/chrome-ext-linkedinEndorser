@@ -3,7 +3,7 @@ let inputSkills = [];
 function save_options() {
   let inputSkill = document.getElementById('skill').value;
   inputSkills.push(inputSkill);
-  console.log(inputSkills);
+  // console.log(inputSkills);
   chrome.storage.sync.set({
     skills: inputSkills
   }, () => {
@@ -13,18 +13,36 @@ function save_options() {
     setTimeout(function() {
       status.textContent = '';
     }, 750);
+
+    let divNode = document.createElement('div');
+    divNode.setAttribute('id', `skilldiv-${inputSkills.length - 1}`);
+    document.getElementById("skill-list").appendChild(divNode);
+
     let liNode = document.createElement('li');
     let textNode = document.createTextNode(inputSkill);         // Create a text node
     liNode.appendChild(textNode);
     liNode.setAttribute('id', `skill-${inputSkills.length - 1}`);
-    document.getElementById("skill-list").appendChild(liNode);
+    divNode.appendChild(liNode);
     document.getElementById('skill').value = '';
 
     let buttonNode = document.createElement('button');
     let buttonTextNode = document.createTextNode('Remove');
     buttonNode.appendChild(buttonTextNode);
     buttonNode.setAttribute('id', `buttonSkill-${inputSkills.length - 1}`);
-    document.getElementById("skill-list").appendChild(buttonNode);
+    divNode.appendChild(buttonNode);
+
+    document.getElementById("skill-list").removeChild(divNode);
+    let newSkills = [];
+    for (var i = 0; i < inputSkills.length; i++) {
+      if (skill !== inputSkills[i]) {
+        newSkills.push(inputSkills[i]);
+      }
+    }
+    inputSkills = newSkills;
+    chrome.storage.sync.set({
+      skills: inputSkills
+    });
+    // console.log(inputSkills);
   });
 }
 
@@ -39,19 +57,35 @@ function restore_options() {
     items.skills.forEach((skill, index) => {
       inputSkills.push(skill);
       let divNode = document.createElement('div');
+      divNode.setAttribute('id', `skilldiv-${index}`);
       document.getElementById("skill-list").appendChild(divNode);
+
       let liNode = document.createElement('li');
       let textnode = document.createTextNode(skill);         // Create a text liNode
       liNode.appendChild(textnode);
       liNode.setAttribute('id', `skill-${index}`);
-      document.getElementById("skill-list").appendChild(liNode);
+      divNode.appendChild(liNode);
 
       let buttonNode = document.createElement('button');
       let buttonTextNode = document.createTextNode('Remove');
       buttonNode.appendChild(buttonTextNode);
       buttonNode.setAttribute('id', `buttonSkill-${inputSkills.length - 1}`);
-      document.getElementById("skill-list").appendChild(buttonNode);
+      divNode.appendChild(buttonNode);
 
+      buttonNode.addEventListener('click', (e) => {
+        document.getElementById("skill-list").removeChild(divNode);
+        let newSkills = [];
+        for (var i = 0; i < inputSkills.length; i++) {
+          if (skill !== inputSkills[i]) {
+            newSkills.push(inputSkills[i]);
+          }
+        }
+        inputSkills = newSkills;
+        chrome.storage.sync.set({
+          skills: inputSkills
+        });
+        // console.log(inputSkills);
+      });
     });
     // document.getElementById('url').value = items.url;
   });

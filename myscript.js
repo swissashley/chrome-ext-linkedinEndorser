@@ -23,7 +23,6 @@ chrome.storage.sync.get(null, items => {
     for (let i = 0; i < buttonNodes.length; i++ ) {
       if (presetSkills.includes(skillArr[i])) {
         // console.log('endorsing ' + skillArr[i]);
-        console.log('endorsing...');
         buttonNodes[i].click();
       }
     }
