@@ -3,7 +3,7 @@
 
   "name": "Linkedin Endorser",
   "description": "This Chrome extension will help you to endorse all the skills in one click.",
-  "version": "1.0",
+  "version": "1.1",
 
   "page_action": {
     "default_icon": "le.png"
