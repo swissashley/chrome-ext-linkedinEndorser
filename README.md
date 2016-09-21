@@ -13,6 +13,13 @@ With this extension, users will be able to:
 
 ### Wireframe
 
+#### Option Menu
+![optionmenu](screenshots/optionmenu.png)
+
+#### Option Settings
+![option](screenshots/option.png)
+
+#### After toggle Linkedin Endorser.
 ![screenshots](screenshots/toggle.png)
 
 ### Technologies & Technical Challenges
@@ -20,4 +27,4 @@ With this extension, users will be able to:
 Use Page action and DOM to access skill buttons in Linkedin user profile page.
 Compare the skills with the preset skill list and endorse the one matches the list.
 
-** Disclaimer: Linkedin might disable your ability on one machine to endorse skills if you heavily rely on this extension too frequently. ** 
+** Disclaimer: Linkedin might disable your ability on one machine to endorse skills if you heavily rely on this extension too frequently. **
