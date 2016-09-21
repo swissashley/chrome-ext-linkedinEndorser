@@ -1,36 +1,29 @@
-var buttons = {};
 var buttonNodes = [];
 var skillNodes = [];
 var skillArr = [];
 var presetSkills = [];
-var toggled = false;
-chrome.storage.sync.get(null, items => {
-  toggled = !toggled;
+chrome.storage.sync.get({
+  skills: ['ruby', 'ruby on rails', 'rails', 'javascript', 'react', 'react.js', 'redux', 'react/redux', 'sql', 'web design', 'html', 'html5', 'css', 'css3']
+}, items => {
+
   var skills = items.skills;
   for (var i = 0; i < skills.length; i++) {
     presetSkills.push(skills[i].toLowerCase());
   }
-  // console.log(presetSkills);
   if (document.getElementsByClassName("endorse-plus")) {
     buttonNodes = document.getElementsByClassName("endorsing");
   }
   if (document.getElementsByClassName("endorse-item-name-text")) {
     skillNodes = document.getElementsByClassName("endorse-item-name-text");
-    for (var i = 0; i < skillNodes.length; i++) {
-      skillArr.push(skillNodes[i].text.toLowerCase());
+    for (var j = 0; j < skillNodes.length; j++) {
+      skillArr.push(skillNodes[j].text.toLowerCase());
     }
-    // console.log(skillArr);
   }
   if (buttonNodes.length > 0) {
-    for (let i = 0; i < buttonNodes.length; i++ ) {
-      if (presetSkills.includes(skillArr[i])) {
-        // console.log('endorsing ' + skillArr[i]);
-        buttonNodes[i].click();
-        if (toggled) {
-          skillNodes[i].style.background = 'red';
-        } else {
-          skillNodes[i].style.background = 'white';
-        }
+    for (var k = 0; k < buttonNodes.length; k++ ) {
+      if (presetSkills.includes(skillArr[k])) {
+        buttonNodes[k].click();
+        skillNodes[k].style.background = 'red';
       }
     }
   }

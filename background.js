@@ -1,17 +1,15 @@
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-  console.log(changeInfo);
+  // console.log(changeInfo);
   if (tab.url && tab.url.indexOf('https://www.linkedin.com/in/') === 0) {
     chrome.pageAction.show(tabId);
   } else {
     chrome.pageAction.hide(tabId);
   }
-chrome.pageAction.onClicked.addListener((tab) => {
-  // chrome.storage.sync.get(null, items => {
-  //   console.log('.......');
-  //   console.log(items);
-  //   console.log('.......');
-  // });
-  chrome.tabs.executeScript(null, {file: "myscript.js"});});
+  if(changeInfo.status === "loading") {
+    chrome.pageAction.onClicked.addListener((tab) => {
+      chrome.tabs.executeScript(null, {file: "myscript.js"});
+    });
+  }
 });
 // chrome.storage.onChanged.addListener((changes, namespace) => {
 //         for (key in changes) {
