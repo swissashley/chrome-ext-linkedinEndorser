@@ -1,6 +1,6 @@
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   // console.log(changeInfo);
-  if (tab.url && tab.url.indexOf('https://www.linkedin.com/in/') === 0) {
+  if (tab.url && (tab.url.indexOf('https://www.linkedin.com/in/') === 0 || tab.url.indexOf('https://www.linkedin.com/comm/profile/') === 0)) {
     chrome.pageAction.show(tabId);
   } else {
     chrome.pageAction.hide(tabId);
