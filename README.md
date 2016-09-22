@@ -25,7 +25,7 @@ With this extension, users will be able to:
 #### Option Settings
 ![option](screenshots/option.png)
 
-#### After toggle Linkedin Endorser.
+#### After clicking on Linkedin Endorser, it only endorses the skills in your option list.
 ![screenshots](screenshots/toggle.png)
 
 ### Technologies & Technical Challenges
