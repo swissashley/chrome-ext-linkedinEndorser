@@ -1,5 +1,8 @@
 ## Chrome extension - Linkedin Endorser
 
+[Link][le]
+[le]: https://chrome.google.com/webstore/detail/linkedin-endorser/mhakkhaadpkehkiiiimheegdbchfmlbi
+
 ** Disclaimer: Linkedin might disable the ability on one machine to endorse skills if you heavily rely on this extension in a short period of time. **
 
 ### Background
